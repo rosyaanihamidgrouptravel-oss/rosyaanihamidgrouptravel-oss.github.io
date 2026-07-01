@@ -1,0 +1,408 @@
+Buatkan index.htmlnya
+Kode di bawah ini
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Umroh & Haji Terpercaya - Rosya Anihamid Group</title>
+    <meta name="description" content="Rosya Anihamid Group menyediakan paket Umroh & Haji resmi, keberangkatan pasti, hotel dekat masjid, dan pembimbing berpengalaman. Amankan seat Anda sekarang!">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wa.me/6283110434770">
+    <meta property="og:title" content="Travel Umroh & Haji Terpercaya - Rosya Anihamid Group">
+    <meta property="og:description" content="Paket Umroh & Haji resmi, keberangkatan pasti, hotel dekat masjid, dan pembimbing berpengalaman. DP hanya 5 Juta rupiah!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Fonts & Tailwind CSS via CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#090d16',
+                        darkCard: '#131926',
+                        neonAccent: '#00f2fe',
+                        neonGold: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'sans-serif';
+            background-color: #090d16;
+            color: #ffffff;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            border-color: #00f2fe;
+        }
+        .neon-text-glow {
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 242, 254, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 242, 254, 0.8); }
+        }
+        .animate-pulse-custom {
+            animation: pulse-slow 3s infinite;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: #131926; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f2fe; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- NAVIGATION UTAMA (STICKY) -->
+    <nav class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-8 text-neonAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    <span class="font-extrabold text-lg sm:text-xl tracking-wider uppercase text-white">ROSYA ANIHAMID<br><span class="text-xs text-neonAccent block tracking-normal">Group Travel</span></span>
+                </div>
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <button id="nav-beranda" onclick="switchTab('beranda')" class="nav-link text-neonAccent font-semibold transition-colors">Beranda</button>
+                    <button id="nav-keunggulan" onclick="switchTab('keunggulan')" class="nav-link text-gray-400 hover:text-white transition-colors">Keunggulan</button>
+                    <button id="nav-paket" onclick="switchTab('paket')" class="nav-link text-gray-400 hover:text-white transition-colors">Paket & Harga</button>
+                    <button id="nav-faq" onclick="switchTab('faq')" class="nav-link text-gray-400 hover:text-white transition-colors">Panduan & FAQ</button>
+                </div>
+                <div class="hidden sm:block">
+                    <a href="https://wa.me/6283110434770" target="_blank" class="bg-gradient-to-r from-neonAccent to-blue-600 text-darkBg font-extrabold px-5 py-2.5 rounded-full text-sm tracking-wide transition-all duration-300 hover:opacity-90 shadow-lg">HUBUNGI KAMI</a>
+                </div>
+                <!-- Tombol Mobile Menu -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden bg-darkCard border-b border-gray-800 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchTab('beranda'); toggleMobileMenu()" class="block w-full text-left text-white py-2 font-medium">Beranda</button>
+            <button onclick="switchTab('keunggulan'); toggleMobileMenu()" class="block w-full text-left text-gray-400 py-2 font-medium">Keunggulan & Manfaat</button>
+            <button onclick="switchTab('paket'); toggleMobileMenu()" class="block w-full text-left text-gray-400 py-2 font-medium">Paket & Harga</button>
+            <button onclick="switchTab('faq'); toggleMobileMenu()" class="block w-full text-left text-gray-400 py-2 font-medium">Panduan & FAQ</button>
+        </div>
+    </nav>
+
+    <!-- KONTEN HALAMAN DINAMIS -->
+    <main id="mainContent">
+
+        <!-- ==================== HALAMAN 1: BERANDA ==================== -->
+        <div id="tab-beranda" class="tab-content block">
+            <!-- Hero Section -->
+            <section class="relative min-h-[85vh] flex items-center justify-center py-20 px-4 overflow-hidden bg-gradient-to-b from-darkBg via-darkCard/50 to-darkBg">
+                <div class="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=1920&q=80" alt="Mekkah Background" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-darkBg via-transparent to-darkBg"></div>
+                </div>
+                
+                <div class="relative z-10 max-w-5xl mx-auto text-center">
+                    <div class="inline-flex items-center gap-2 bg-blue-950/60 border border-blue-500/30 text-neonAccent px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-neonAccent animate-ping"></span> Travel Umroh & Haji Resmi Berizin
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-6">
+                        Ibadah Umroh Tenang & Nyaman, <br><span class="bg-gradient-to-r from-neonAccent to-neonGold bg-clip-text text-transparent neon-text-glow">Jadwal Keberangkatan Pasti!</span>
+                    </h1>
+                    <p class="text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        Wujudkan impian ibadah ke Tanah Suci bersama Rosya Anihamid Group. Pelayanan profesional, transparan, dan penuh kepedulian seperti keluarga sendiri.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://wa.me/6283110434770" target="_blank" class="w-full sm:w-auto text-center bg-gradient-to-r from-green-500 to-emerald-600 text-white font-extrabold text-lg px-8 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-pulse-custom tracking-wider">
+                            DAFTAR SEKARANG
+                        </a>
+                        <button onclick="switchTab('paket')" class="w-full sm:w-auto border-2 border-gray-700 hover:border-neonAccent text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 bg-darkCard/40 backdrop-blur-sm">
+                            Lihat Paket Pilihan
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ticker Promo -->
+            <div class="bg-gradient-to-r from-neonAccent/20 via-blue-900/40 to-neonGold/20 border-y border-gray-800 py-3 overflow-hidden">
+                <div class="flex whitespace-nowrap gap-12 justify-center items-center text-xs sm:text-sm font-bold tracking-widest text-gray-300">
+                    <span>⚡ PENAWARAN SPESIAL: CUKUP DP 5 JUTA SUDAH AMANKAN SEAT ANDA</span>
+                    <span class="hidden md:inline">🕋 PENDAFTARAN MUDAH & PROSES DIBANTU HINGGA TUNTAS</span>
+                </div>
+            </div>
+
+            <!-- Ringkasan Fitur -->
+            <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-darkCard border border-gray-800 p-8 rounded-2xl transition-all duration-300 neon-border">
+                        <div class="w-12 h-12 bg-neonGold/10 text-neonGold flex items-center justify-center rounded-xl mb-6 text-2xl">🕋</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Amanah & Resmi</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Mengutamakan legalitas resmi serta transparansi biaya total sejak awal kesepakatan.</p>
+                    </div>
+                    <div class="bg-darkCard border border-gray-800 p-8 rounded-2xl transition-all duration-300 neon-border">
+                        <div class="w-12 h-12 bg-neonAccent/10 text-neonAccent flex items-center justify-center rounded-xl mb-6 text-2xl">✈️</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Pasti Berangkat</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Sistem penjadwalan matang yang menjamin kejelasan tanggal keberangkatan Anda.</p>
+                    </div>
+                    <div class="bg-darkCard border border-gray-800 p-8 rounded-2xl transition-all duration-300 neon-border">
+                        <div class="w-12 h-12 bg-neonGold/10 text-neonGold flex items-center justify-center rounded-xl mb-6 text-2xl">  🕌</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Akomodasi Premium</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Pemilihan hotel dekat dengan pelataran masjid untuk kemudahan ibadah harian.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 2: KEUNGGULAN & MANFAAT ==================== -->
+        <div id="tab-keunggulan" class="tab-content hidden">
+            <section class="py-16 max-w-5xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Layanan Terbaik Unggulan Kami</h2>
+                    <p class="text-gray-400">Dedikasi penuh dari Rosya Anihamid Group demi kenyamanan ibadah Anda.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-darkCard border border-gray-800 p-6 rounded-2xl flex gap-6 items-start">
+                        <div class="w-12 h-12 bg-blue-950 text-neonAccent rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">01</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Pendampingan Pengurusan Berkas VIP</h3>
+                            <p class="text-sm text-gray-400">Kami bantu urus kelengkapan berkas paspor, pendaftaran visa, hingga pembuatan akun aplikasi Nusuk secara terstruktur.</p>
+                        </div>
+                    </div>
+                    <div class="bg-darkCard border border-gray-800 p-6 rounded-2xl flex gap-6 items-start">
+                        <div class="w-12 h-12 bg-amber-950 text-neonGold rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">02</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Fasilitas Tambahan Eksklusif Tanpa Biaya Ekstra</h3>
+                            <p class="text-sm text-gray-400">Dapatkan keuntungan gratis perjalanan ke kota bersejarah Thaif, tiket Kereta Cepat Haramain, dan sajian kuliner khas arab populer seperti Ayam Al Baik.</p>
+                        </div>
+                    </div>
+                    <div class="bg-darkCard border border-gray-800 p-6 rounded-2xl flex gap-6 items-start">
+                        <div class="w-12 h-12 bg-blue-950 text-neonAccent rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">03</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Bimbingan Manasik Intensif</h3>
+                            <p class="text-sm text-gray-400">Pembekalan tata cara ibadah umroh yang sesuai dengan tuntunan sunnah Rasulullah SAW oleh ustadz pembimbing tersertifikasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni / Video -->
+                <div class="mt-16 bg-darkCard border border-gray-800 p-6 rounded-2xl max-w-2xl mx-auto">
+                    <h3 class="text-xl font-bold text-center mb-6">Dokumentasi Perjalanan Jamaah</h3>
+                    <div class="relative w-full aspect-[9/16] max-h-[450px] mx-auto rounded-xl overflow-hidden bg-black">
+                        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/l4VChvSrLuE" title="Testimoni" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 3: PAKET & HARGA ==================== -->
+        <div id="tab-paket" class="tab-content hidden">
+            <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-extrabold tracking-tight">Pilihan Paket Investasi Akhirat</h2>
+                    <p class="text-gray-500 mt-2">Pilih paket terbaik yang dirancang khusus untuk kenyamanan Anda dan keluarga.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                    <!-- Paket Hemat -->
+                    <div class="bg-darkCard border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-green-400 bg-green-950 px-3 py-1 rounded-full uppercase">Hemat</span>
+                            <h3 class="text-xl font-bold text-white mt-4">PAKET HEMAT</h3>
+                            <div class="my-4"><span class="text-2xl font-black text-neonGold">29 Juta-an</span></div>
+                            <ul class="space-y-2 text-xs text-gray-400 border-t border-gray-800 pt-4">
+                                <li>• Hotel Nyaman Bintang 3</li>
+                                <li>• Bus Full AC Selama Perjalanan</li>
+                                <li>• Konsumsi 3x Sehari Menu Indonesia</li>
+                                <li>• Pembimbing Berpengalaman</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6283110434770" target="_blank" class="block text-center mt-6 w-full bg-blue-950 border border-blue-800 text-white font-bold py-3 rounded-xl text-xs">PILIH PAKET</a>
+                    </div>
+
+                    <!-- Paket Reguler (Highlight) -->
+                    <div class="bg-gradient-to-b from-darkCard to-blue-950/40 border-2 border-neonAccent p-6 rounded-2xl flex flex-col justify-between relative shadow-2xl transform md:scale-105">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-neonAccent to-blue-600 text-darkBg font-black text-[10px] px-4 py-1 rounded-full">POPULER</div>
+                        <div>
+                            <span class="text-xs font-bold text-neonAccent bg-blue-950 px-3 py-1 rounded-full uppercase">Best Seller</span>
+                            <h3 class="text-xl font-bold text-white mt-4">PAKET REGULER</h3>
+                            <div class="my-4"><span class="text-3xl font-black text-neonAccent neon-text-glow">36 Juta-an</span></div>
+                            <ul class="space-y-2 text-xs text-gray-300 border-t border-blue-900/50 pt-4">
+                                <li>✨ Termasuk Tiket Kereta Cepat</li>
+                                <li>• Hotel Bintang 4 Ring Dekat Masjid</li>
+                                <li>• Gratis Perjalanan Kuliner Al-Baik</li>
+                                <li>• Gratis Wisata Tambahan Ke Thaif</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6283110434770" target="_blank" class="block text-center mt-6 w-full bg-gradient-to-r from-neonAccent to-blue-600 text-darkBg font-extrabold py-3 rounded-xl text-xs">DAFTAR SEKARANG</a>
+                    </div>
+
+                    <!-- Paket VIP -->
+                    <div class="bg-darkCard border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-purple-400 bg-purple-950 px-3 py-1 rounded-full uppercase">Premium</span>
+                            <h3 class="text-xl font-bold text-white mt-4">PAKET VIP / LANSIA</h3>
+                            <div class="my-4"><span class="text-2xl font-black text-purple-400">45 Juta-an</span></div>
+                            <ul class="space-y-2 text-xs text-gray-400 border-t border-gray-800 pt-4">
+                                <li>• Hotel Bintang 5 Depan Pelataran</li>
+                                <li>• Pendampingan Kursi Roda Khusus</li>
+                                <li>• Maskapai Penerbangan Kelas Utama</li>
+                                <li>• Sajian Kuliner Internasional</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6283110434770" target="_blank" class="block text-center mt-6 w-full bg-blue-950 border border-blue-800 text-white font-bold py-3 rounded-xl text-xs">PILIH PAKET</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 4: PANDUAN & FAQ ==================== -->
+        <div id="tab-faq" class="tab-content hidden">
+            <section class="py-16 max-w-4xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+                    <p class="text-gray-500 text-sm mt-1">Informasi penting seputar tata cara pendaftaran bersama kami.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-darkCard border border-gray-800 rounded-xl overflow-hidden">
+                        <button onclick="toggleFaq(1)" class="w-full text-left px-6 py-4 font-bold flex justify-between items-center text-white hover:text-neonAccent transition-colors">
+                            <span>Apakah Rosya Anihamid Group memiliki izin resmi Penyelenggara Umroh?</span>
+                            <span id="faq-icon-1" class="text-neonAccent font-black">+</span>
+                        </button>
+                        <div id="faq-ans-1" class="hidden px-6 pb-5 text-sm text-gray-400 border-t border-gray-900 pt-3">
+                            Ya, biro perjalanan kami telah terdaftar secara resmi dan sah sebagai Penyelenggara Perjalanan Ibadah Umroh (PPIU) di Kementerian Agama Republik Indonesia, sehingga keamanan dana dan keberangkatan Anda terjamin secara hukum.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-darkCard border border-gray-800 rounded-xl overflow-hidden">
+                        <button onclick="toggleFaq(2)" class="w-full text-left px-6 py-4 font-bold flex justify-between items-center text-white hover:text-neonAccent transition-colors">
+                            <span>Bagaimana cara mengklaim perlengkapan koper setelah membayar DP?</span>
+                            <span id="faq-icon-2" class="text-neonAccent font-black">+</span>
+                        </button>
+                        <div id="faq-ans-2" class="hidden px-6 pb-5 text-sm text-gray-400 border-t border-gray-900 pt-3">
+                            Setelah Anda melakukan pembayaran DP awal sebesar Rp 5.000.000, tim logistik kami akan langsung menyiapkan koper eksklusif beserta kain ihram/mukena dan seragam untuk dapat diambil ke kantor kami atau dikirim ke alamat rumah Anda.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-darkCard border border-gray-800 rounded-xl overflow-hidden">
+                        <button onclick="toggleFaq(3)" class="w-full text-left px-6 py-4 font-bold flex justify-between items-center text-white hover:text-neonAccent transition-colors">
+                            <span>Apakah sisa pelunasan paket umroh bisa diangsur?</span>
+                            <span id="faq-icon-3" class="text-neonAccent font-black">+</span>
+                        </button>
+                        <div id="faq-ans-3" class="hidden px-6 pb-5 text-sm text-gray-400 border-t border-gray-900 pt-3">
+                            Tentu saja bisa. Pelunasan biaya paket sisa dapat diangsur secara fleksibel sampai batas waktu maksimal 1 bulan sebelum jadwal keberangkatan kloter Anda resmi dilaksanakan.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER & CTA UTAMA -->
+    <footer class="py-16 bg-gradient-to-t from-darkBg to-darkCard/50 border-t border-gray-900 text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-extrabold text-white mb-4">Segera Amankan Seat Keberangkatan Anda</h2>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto mb-8">Kuota promo dengan fasilitas gratis Kereta Cepat Haramain sangat terbatas untuk setiap bulannya. Konsultasikan jadwal Anda sekarang.</p>
+            <a href="https://wa.me/6283110434770" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-black text-lg px-10 py-4 rounded-xl shadow-2xl transition-all duration-300 transform hover:scale-105">
+                💬 CHAT PENDAFTARAN VIA WHATSAPP
+            </a>
+            
+            <div class="mt-16 text-xs text-gray-500 border-t border-gray-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-6xl mx-auto text-left">
+                <div>
+                    <p class="font-bold text-gray-400">© 2026 ROSYA ANIHAMID GROUP. Hak Cipta Dilindungi.</p>
+                    <p class="mt-1">Penyelenggara Perjalanan Ibadah Umroh & Haji Khusus Resmi.</p>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="switchTab('beranda')" class="hover:text-white">Beranda</button>
+                    <button onclick="switchTab('keunggulan')" class="hover:text-white">Keunggulan</button>
+                    <button onclick="switchTab('paket')" class="hover:text-white">Paket</button>
+                    <button onclick="switchTab('faq')" class="hover:text-white">FAQ</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE BOTTOM CTA -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-darkCard/95 border-t border-gray-800 p-3 z-50 backdrop-blur-md flex items-center justify-between px-4">
+        <div>
+            <div class="text-[10px] text-gray-400 uppercase">Promo Booking Seat</div>
+            <div class="text-sm font-black text-neonAccent">DP Rp 5 Juta</div>
+        </div>
+        <a href="https://wa.me/6283110434770" target="_blank" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-black px-5 py-2.5 rounded-lg tracking-wider uppercase">AMANKAN SEAT</a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC UNTUK TAB DYNAMIC & ACCORDION -->
+    <script>
+        // Fungsi Router Navigasi Halaman (Tab)
+        function switchTab(tabId) {
+            // Sembunyikan seluruh halaman konten
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('block');
+                content.classList.add('hidden');
+            });
+
+            // Tampilkan halaman konten target
+            const targetContent = document.getElementById('tab-' + tabId);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                targetContent.classList.add('block');
+            }
+
+            // Reset indikator warna menu aktif
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.classList.remove('text-neonAccent', 'font-semibold');
+                link.classList.add('text-gray-400');
+            });
+
+            // Set warna aktif pada menu yang dipilih
+            const activeLink = document.getElementById('nav-' + tabId);
+            if (activeLink) {
+                activeLink.classList.remove('text-gray-400');
+                activeLink.classList.add('text-neonAccent', 'font-semibold');
+            }
+
+            // Scroll otomatis ke atas layar
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fungsi Accordion FAQ
+        function toggleFaq(index) {
+            const answer = document.getElementById('faq-ans-' + index);
+            const icon = document.getElementById('faq-icon-' + index);
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.innerText = '−';
+                icon.classList.add('text-neonGold');
+            } else {
+                answer.classList.add('hidden');
+                icon.innerText = '+';
+                icon.classList.remove('text-neonGold');
+            }
+        }
+
+        // Fungsi Menu Navigasi Mobile
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
